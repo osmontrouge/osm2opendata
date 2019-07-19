@@ -1,0 +1,10 @@
+description: Stations Vélib
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="bicycle_rental"]["network"="Vélib’"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

@@ -1,0 +1,11 @@
+description: Boîtes aux lettres
+exemple: https://data.montreuil.fr/explore/dataset/liste-des-boites-aux-lettres-de-rue/
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="post_box"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

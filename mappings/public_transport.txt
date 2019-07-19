@@ -1,0 +1,12 @@
+description: Arrêts de transports en commun
+exemple: https://data.montreuil.fr/explore/dataset/lieux-darret-de-montreuil-bus-et-metro/
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        node["highway"="bus_stop"](area.searchArea);
+        node["railway"="station"]["station"="subway"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

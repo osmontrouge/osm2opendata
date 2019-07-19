@@ -1,0 +1,11 @@
+description: Stations de recharge de véhicules électriques
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="charging_station"](area.searchArea);
+    );
+    // print results
+    out body;
+    >;
+    out skel qt;

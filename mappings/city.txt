@@ -1,0 +1,11 @@
+description: Frontière de la ville
+example: https://data.montreuil.fr/explore/dataset/contours-montreuil/
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        relation["boundary"="administrative"]["admin_level"="8"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

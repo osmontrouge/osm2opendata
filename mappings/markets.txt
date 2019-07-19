@@ -1,0 +1,11 @@
+description: Marchés
+exemple: https://data.montreuil.fr/explore/dataset/les-marches/
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="marketplace"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

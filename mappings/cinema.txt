@@ -1,0 +1,10 @@
+description: Cinéma
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="cinema"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

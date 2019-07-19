@@ -1,0 +1,11 @@
+description: Places de livraison
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        node["amenity"="parking_space"]["parking_space"="delivery"](area.searchArea);
+        way["amenity"="parking_space"]["parking_space"="delivery"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

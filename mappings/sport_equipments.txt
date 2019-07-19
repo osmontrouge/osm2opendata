@@ -1,0 +1,16 @@
+description: Installations sportives
+exemple: https://data.montreuil.fr/explore/dataset/emprise-des-equipements-sportifs/
+overpass: |
+    [out:json][timeout:25];
+    // TODO: Refine access
+    // TODO: Extra ones?
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["leisure"="sports_centre"](area.searchArea);
+        nwr["leisure"="pitch"](area.searchArea);
+        nwr["leisure"="track"](area.searchArea);
+        nwr["fitness_station"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

@@ -1,0 +1,12 @@
+description: Panneaux biches (animaux sauvages pouvant traverser)
+note: aucun à Montrouge à ce jour - juillet 2019
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        node["traffic_sign"="FR:A15b"](area.searchArea);
+        nwr["hazard"="animal_crossing"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

@@ -1,0 +1,10 @@
+description: Tables de pique-nique
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        node["leisure"="picnic_table"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

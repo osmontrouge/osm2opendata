@@ -1,0 +1,11 @@
+description: Bureaux et relais poste
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="post_office"](area.searchArea);
+        nwr["post_office:type"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

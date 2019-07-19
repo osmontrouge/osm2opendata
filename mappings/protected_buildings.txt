@@ -1,0 +1,11 @@
+description: Monuments classés ou inscrits monument historique
+exemple: https://data.montreuil.fr/explore/dataset/immeubles-proteges-au-titre-des-monuments-historiques/
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["heritage"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;
