@@ -1,3 +1,11 @@
-// TODO
 // Maisons de quartier / maison associative
-// https://data.montreuil.fr/explore/dataset/antennes-centres-et-maisons-de-quartier/table/?disjunctive.parent_title
+// Voir : https://data.montreuil.fr/explore/dataset/antennes-centres-et-maisons-de-quartier/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="community_centre"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

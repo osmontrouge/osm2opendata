@@ -1,1 +1,12 @@
-// TODO
+// Base Adresse Locale
+
+// TODO: Raffiner
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["addr:housenumber"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

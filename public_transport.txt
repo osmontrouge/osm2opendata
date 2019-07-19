@@ -1,3 +1,12 @@
-// TODO
-// Bus and subway stops
-// https://data.montreuil.fr/explore/dataset/lieux-darret-de-montreuil-bus-et-metro/
+// Arrêts de transports en commun
+// Voir : https://data.montreuil.fr/explore/dataset/lieux-darret-de-montreuil-bus-et-metro/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  node["highway"="bus_stop"](area.searchArea);
+  node["railway"="station"]["station"="subway"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

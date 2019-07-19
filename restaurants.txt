@@ -1,2 +1,12 @@
-// TODO
-// https://data.montreuil.fr/explore/dataset/restaurants-issus-de-la-base-open-street-map/
+// Restaurants / bars
+// Voir : https://data.montreuil.fr/explore/dataset/restaurants-issus-de-la-base-open-street-map/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="restaurant"](area.searchArea);
+  nwr["amenity"="cafe"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
