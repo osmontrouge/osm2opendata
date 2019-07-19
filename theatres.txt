@@ -1,2 +1,11 @@
-// TODO
-// https://data.montreuil.fr/explore/dataset/theatres/
+// Théâtre
+// Voir : https://data.montreuil.fr/explore/dataset/theatres/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="theatre"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

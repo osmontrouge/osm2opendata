@@ -1,3 +1,11 @@
-// TODO
-// EHPAD
-// https://data.montreuil.fr/explore/dataset/etablissements-pour-personnes-agees/
+// Établissements pour personnes âgées
+// Voir : https://data.montreuil.fr/explore/dataset/etablissements-pour-personnes-agees/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="social_facility"]["social_facility:for"="senior"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

@@ -1,2 +1,11 @@
-// TODO
-// https://data.montreuil.fr/explore/dataset/emplacement-des-points-dapport-volontaire/
+// Points d'apport volontaire
+// Voir : https://data.montreuil.fr/explore/dataset/emplacement-des-points-dapport-volontaire/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="recycling"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

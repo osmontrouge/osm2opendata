@@ -1,2 +1,11 @@
-// TODO
-// https://data.montreuil.fr/explore/dataset/les-marches/
+// Marchés
+// Voir : https://data.montreuil.fr/explore/dataset/les-marches/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="marketplace"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

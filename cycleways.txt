@@ -1,12 +1,15 @@
-// TODO
+// Pistes cyclables
+// TODO: Vérifier à la frontière avec Châtillon + le long du Fort de Montrouge
+
 [out:json][timeout:25];
 {{geocodeArea:Montrouge}}->.searchArea;
 (
-  nwr["highway"="cycleway"](area.searchArea);
-  nwr["highway"]["cycleway:left"!="no"](area.searchArea);
-  nwr["highway"]["cycleway:right"!="no"](area.searchArea);
-  nwr["highway"]["cycleway:both"!="no"](area.searchArea);
-  nwr["highway"]["cycleway"!="no"](area.searchArea);
+  way["highway"]["bicycle"="designated"](area.searchArea);
+  way["highway"="cycleway"](area.searchArea);
+  way["highway"]["cycleway:left"]["cycleway:left"!="no"]["cycleway:left"!="use_sidepath"](area.searchArea);
+  way["highway"]["cycleway:right"]["cycleway:right"!="no"]["cycleway:right"!="use_sidepath"](area.searchArea);
+  way["highway"]["cycleway:both"]["cycleway:both"!="no"]["cycleway:both"!="use_sidepath"](area.searchArea);
+  way["highway"]["cycleway"]["cycleway"!="no"]["cycleway"!="use_sidepath"](area.searchArea);
 );
 out body;
 >;
