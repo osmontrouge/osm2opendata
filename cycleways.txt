@@ -4,12 +4,16 @@
 [out:json][timeout:25];
 {{geocodeArea:Montrouge}}->.searchArea;
 (
+  // Trottoirs partagés
   way["highway"]["bicycle"="designated"](area.searchArea);
+  // Pistes cyclables
   way["highway"="cycleway"](area.searchArea);
+  // Pistes et bandes cyclables non séparées
   way["highway"]["cycleway:left"]["cycleway:left"!="no"]["cycleway:left"!="use_sidepath"](area.searchArea);
   way["highway"]["cycleway:right"]["cycleway:right"!="no"]["cycleway:right"!="use_sidepath"](area.searchArea);
   way["highway"]["cycleway:both"]["cycleway:both"!="no"]["cycleway:both"!="use_sidepath"](area.searchArea);
   way["highway"]["cycleway"]["cycleway"!="no"]["cycleway"!="use_sidepath"](area.searchArea);
+  // Espaces piétons autorisés aux vélos
 );
 out body;
 >;

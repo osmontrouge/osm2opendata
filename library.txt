@@ -1,2 +1,11 @@
-// TODO
-// https://data.montreuil.fr/explore/dataset/bibliotheques/
+// Médiathèque
+// Voir : https://data.montreuil.fr/explore/dataset/bibliotheques/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="library"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
