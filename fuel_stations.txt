@@ -1,1 +1,11 @@
-// TODO
+// Station services
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+
+  nwr["amenity"="fuel"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

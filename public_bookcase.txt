@@ -1,1 +1,11 @@
-// TODO
+// Micro-bibliothèques de rue
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+
+  nwr["amenity"="public_bookcase"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
