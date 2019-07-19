@@ -1,1 +1,13 @@
-// TODO
+// Hammacs en libre accès
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+// gather results
+(
+  node["amenity"="hammock"](area.searchArea);
+  way["amenity"="hammock"](area.searchArea);
+);
+// print results
+out body;
+>;
+out skel qt;

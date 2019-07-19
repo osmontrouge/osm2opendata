@@ -1,3 +1,11 @@
-// TODO
-// City contour
-// https://data.montreuil.fr/explore/dataset/contours-montreuil/
+// Frontière de la ville
+// Voir https://data.montreuil.fr/explore/dataset/contours-montreuil/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  relation["boundary"="administrative"]["admin_level"="8"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
