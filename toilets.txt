@@ -1,1 +1,12 @@
-// TODO
+// Toilettes publiques
+
+// TODO: Refine indoor / access
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="toilets"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

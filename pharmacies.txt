@@ -1,2 +1,11 @@
-// TODO
-// https://data.montreuil.fr/explore/dataset/pharmacies-de-montreuil/
+// Pharmacies
+// Voir : https://data.montreuil.fr/explore/dataset/pharmacies-de-montreuil/
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="pharmacy"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

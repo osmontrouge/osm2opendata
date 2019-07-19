@@ -1,1 +1,11 @@
-// TODO
+// Eau potable
+
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="drinking_water"](area.searchArea);
+  nwr["drinking_water"="yes"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
