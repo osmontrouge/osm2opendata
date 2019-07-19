@@ -1,0 +1,8 @@
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["amenity"="vending_machine"]["vending"="excrement_bags"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

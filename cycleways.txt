@@ -1,0 +1,13 @@
+// TODO
+[out:json][timeout:25];
+{{geocodeArea:Montrouge}}->.searchArea;
+(
+  nwr["highway"="cycleway"](area.searchArea);
+  nwr["highway"]["cycleway:left"!="no"](area.searchArea);
+  nwr["highway"]["cycleway:right"!="no"](area.searchArea);
+  nwr["highway"]["cycleway:both"!="no"](area.searchArea);
+  nwr["highway"]["cycleway"!="no"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
