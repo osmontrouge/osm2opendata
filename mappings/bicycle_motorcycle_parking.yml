@@ -1,0 +1,11 @@
+name: Parkings deux roues et vélos
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="bicycle_parking"](area.searchArea);
+        nwr["amenity"="motorcycle_parking"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

@@ -1,0 +1,11 @@
+name: Maisons de quartier / maison associative
+exemple: https://data.montreuil.fr/explore/dataset/antennes-centres-et-maisons-de-quartier/
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="community_centre"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

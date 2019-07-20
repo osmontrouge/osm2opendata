@@ -1,0 +1,10 @@
+name: Lieux de culte
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        nwr["amenity"="place_of_worship"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

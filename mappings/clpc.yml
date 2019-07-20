@@ -1,0 +1,12 @@
+name: Pannonceau cédez-le-passage cycliste
+note: aucun à Montrouge à ce jour - juillet 2019
+overpass: |
+    [out:json][timeout:25];
+    // TODO: Filter out those on the frontier, at Malakoff
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        relation["type"="restriction"]["restriction:bicycle"="give_way"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;

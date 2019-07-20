@@ -1,0 +1,13 @@
+name: Ruches
+exemple: https://data.montreuil.fr/explore/dataset/ruchers/
+overpass: |
+    [out:json][timeout:25];
+    // fetch area “Montrouge” to search in
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        node["man_made"="beehive"](area.searchArea);
+    );
+    // print results
+    out body;
+    >;
+    out skel qt;

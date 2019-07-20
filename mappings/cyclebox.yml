@@ -1,0 +1,10 @@
+name: Sas vélos
+overpass: |
+    [out:json][timeout:25];
+    {{geocodeArea:Montrouge}}->.searchArea;
+    (
+        node["cycleway"="asl"](area.searchArea);
+    );
+    out body;
+    >;
+    out skel qt;
