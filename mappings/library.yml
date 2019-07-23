@@ -1,11 +1,12 @@
 name: Médiathèque
-exemple: https://data.montreuil.fr/explore/dataset/bibliotheques/
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="library"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="library"](area.searchArea);
+mapping:
+  name: name
+  address: <ADDRESS>
+  internet_access: internet_access
+  "internet_access:fee": "internet_access:fee"
+  opening_hours: opening_hours
+  phone: phone
+  website: website
+  wheelchair: wheelchair

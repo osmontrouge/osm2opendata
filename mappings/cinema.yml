@@ -1,10 +1,8 @@
 name: Cinéma
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="cinema"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="cinema"](area.searchArea)
+mapping:
+  address: <ADDRESS>
+  name: name
+  nb_screens: screen|int
+  wheelchair: wheelchair|bool

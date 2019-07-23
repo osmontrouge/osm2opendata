@@ -1,11 +1,10 @@
 name: Parcmètres
 exemple: https://data.montreuil.fr/explore/dataset/liste-des-horodateurs/
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="vending_machine"]["vending"="parking_tickets"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="vending_machine"]["vending"="parking_tickets"](area.searchArea)
+mapping:
+  zone: "parking:zone"
+  operator: operator
+  owner: owner
+  fee: fee
+  # TODO: Paiements

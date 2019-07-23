@@ -1,13 +1,14 @@
 name: Hôtels
-exemple: https://data.montreuil.fr/explore/dataset/hotels-de-tourisme/
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        node["tourism"="hotel"](area.searchArea);
-        way["tourism"="hotel"](area.searchArea);
-        relation["tourism"="hotel"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["tourism"="hotel"](area.searchArea);
+mapping:
+  name: name
+  stars: stars
+  website: website
+  phone: phone
+  rooms: rooms
+  address: <ADDRESS>
+  internet_access: internet_access
+  email: email
+  beds: beds
+  wheelchair: wheelchair

@@ -1,12 +1,8 @@
 name: Places de livraison
 description: Intègre et affine https://opendata.hauts-de-seine.fr/explore/dataset/aires-de-livraison/information/?disjunctive.type&disjunctive.loc_num&disjunctive.commune&disjunctive.sens sur la commune de Montrouge.
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        node["amenity"="parking_space"]["parking_space"="delivery"](area.searchArea);
-        way["amenity"="parking_space"]["parking_space"="delivery"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="parking_space"]["parking_space"="delivery"](area.searchArea);
+mapping:
+  hours: delivery
+  access: access
+  inscription: inscription

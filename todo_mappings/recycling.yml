@@ -1,0 +1,3 @@
+name: Points d'apport volontaire
+overpass:
+  - nwr["amenity"="recycling"](area.searchArea);

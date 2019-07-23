@@ -1,11 +1,12 @@
 name: Pharmacies
-exemple: https://data.montreuil.fr/explore/dataset/pharmacies-de-montreuil/
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="pharmacy"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="pharmacy"](area.searchArea);
+mapping:
+  "ref:FINESS": "ref:FR:FINESS"
+  "type:FINESS": type:FR:FINESS
+  opening_hours: opening_hours
+  phone: phone
+  fax: fax
+  wheelchair: wheelchair
+  name: name
+  address: <ADDRESS>

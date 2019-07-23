@@ -8,7 +8,6 @@ from . import overpass
 
 
 logger = logging.getLogger(__name__)
-GEOCODE_AREA_RE = re.compile(r'{{geocodeArea:(\w+?)}}')
 
 
 def read_mapping(filename):
@@ -24,7 +23,7 @@ def read_mapping(filename):
     return mapping
 
 
-def execute_overpass(parsed):
+def execute_overpass(parsed, searchArea=None):
     """
     Execute the Overpass query for a given parsed mapping.
 
@@ -32,8 +31,66 @@ def execute_overpass(parsed):
     :returns: The fetched objects.
     """
     logger.info('Querying Overpass for mapping "%s".', parsed['name'])
-    geocoded_overpass_query  = GEOCODE_AREA_RE.sub(
-        lambda match: 'area(%d)' % nominatim.geocode_place(match.group(1)),
-        parsed['overpass']
-    )
-    return overpass.query(geocoded_overpass_query)
+    if searchArea:
+        area = nominatim.geocode_place(searchArea)
+        geocoded_overpass_queries = [
+            query.replace('area.searchArea', 'area:%d' % area)
+            for query in parsed['overpass']
+        ]
+    else:
+        geocoded_overpass_queries = parsed['overpass']
+    return overpass.query(geocoded_overpass_queries)
+
+
+def apply_mapping(data, parsed):
+    """
+    TODO
+    """
+    new_items = []
+    logger.debug('Got response: %s.', data)
+
+    # Filter out duplicates
+    seen = []
+    features = []
+    for item in data.get('features', []):
+        if item['id'] in seen:
+            continue
+        features.append(item)
+        seen.append(item['id'])
+
+    for item in features:
+        new_item = {
+            'geometry': item['geometry'],
+            'properties': {
+                'osm_id': item['id']
+            }
+        }
+        for new_field, osm_field in parsed.get('mapping', {}).items():
+            if osm_field == '<ADDRESS>':
+                new_item['properties'][new_field] = '%s, %s' % (
+                    item.get('properties', {}).get('contact:housenumber'),
+                    item.get('properties', {}).get('contact:street')
+                )
+            else:
+                cast = None
+                if '|' in osm_field:
+                    osm_field, cast = osm_field.split('|')[:2]
+                new_value = item.get('properties', {}).get(osm_field)
+
+                if cast == 'int':
+                    new_item['properties'][new_field] = (
+                        int(new_value) if new_value else None
+                    )
+                elif cast == 'bool':
+                    if new_value in ['yes', '1']:
+                        new_item['properties'][new_field] = True
+                    elif new_value in ['no', '0', None]:
+                        new_item['properties'][new_field] = False
+                    else:
+                        new_item['properties'][new_field] = None
+                else:
+                    new_item['properties'][new_field] = new_value
+
+
+        new_items.append(new_item)
+    return new_items

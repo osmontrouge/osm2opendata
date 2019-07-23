@@ -1,10 +1,14 @@
 name: Station services
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="fuel"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="fuel"](area.searchArea);
+mapping:
+  address: <ADDRESS>
+  brand: brand
+  diesel: "fuel:diesel|bool"
+  e10: "fuel:e10|bool"
+  lpg: "fuel:lpg|bool"
+  octane_98: "fuel:octane_98|bool"
+  name: name
+  opening_hours: opening_hours
+  toilets: toilets
+  "ref:prix-carburants": "ref:FR:prix-carburants"

@@ -1,0 +1,4 @@
+name: Emprise des trottoirs et espaces dédiés aux piétons
+overpass:
+  - nwr["highway"="footway"]["footway"="sidewalk"](area.searchArea);
+  - nwr["highway"="pedestrian"]["area"="yes"](area.searchArea);

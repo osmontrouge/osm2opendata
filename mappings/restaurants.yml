@@ -1,12 +1,14 @@
 name: Restaurants / bars
-exemple: https://data.montreuil.fr/explore/dataset/restaurants-issus-de-la-base-open-street-map/
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="restaurant"](area.searchArea);
-        nwr["amenity"="cafe"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="restaurant"](area.searchArea)
+  - nwr["amenity"="cafe"](area.searchArea)
+mapping:
+  name: name
+  website: website
+  phone: phone
+  opening_hours: opening_hours
+  email: email
+  outdoor_seating: outdoor_seating|bool
+  cuisin: cuisin
+  vegetarian: "diet:vegetarian|bool"
+  vegan: "diet:vegan|bool"

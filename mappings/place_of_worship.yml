@@ -1,10 +1,11 @@
 name: Lieux de culte
-overpass: |
-    [out:json][timeout:25];
-    {{geocodeArea:Montrouge}}->.searchArea;
-    (
-        nwr["amenity"="place_of_worship"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
+overpass:
+  - nwr["amenity"="place_of_worship"](area.searchArea);
+mapping:
+  religion: religion
+  name: name
+  phone: phone
+  website: website
+  email: email
+  adress: <ADDRESS>
+  service_times: service_times

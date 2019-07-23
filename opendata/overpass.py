@@ -1,20 +1,25 @@
-import requests
+import logging
 
-from . import constants
+import overpass
+
+logger = logging.getLogger(__name__)
 
 
-def query(query_str):
+def query(queries_str):
     """
     Query Overpass API.
 
     :param query_str: The query to run on Overpass API.
     :returns: The parsed JSON response.
     """
-    r = requests.post(
-        'https://overpass-api.de/api/interpreter',
-        headers={
-            'User-Agent': constants.USER_AGENT
-        },
-        data=query_str
-    )
-    return r.json()
+    api = overpass.API()
+    data = {
+        'type': 'FeatureCollection',
+        'features': []
+    }
+    for query in queries_str:
+        logger.debug('Running Overpass query: %s', query)
+        data['features'].extend(
+            api.get(query, responseformat='geojson', verbosity='geom').features
+        )
+    return data
