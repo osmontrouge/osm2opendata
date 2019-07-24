@@ -1,6 +1,5 @@
 name: Lieux de culte
-overpass:
-  - nwr["amenity"="place_of_worship"](area.searchArea);
+overpass: nwr["amenity"="place_of_worship"](area.searchArea);
 mapping:
   religion: religion
   name: name

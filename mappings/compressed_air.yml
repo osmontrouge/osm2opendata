@@ -1,4 +1,6 @@
 name: Gonfleurs
-overpass:
-  - nwr["amenity"="compressed_air"](area.searchArea)
-  - nwr["compressed_air"="yes"](area.searchArea)
+overpass: |
+  (
+    nwr["amenity"="compressed_air"](area.searchArea);
+    nwr["compressed_air"="yes"](area.searchArea);
+  );

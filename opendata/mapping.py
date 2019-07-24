@@ -33,13 +33,12 @@ def execute_overpass(parsed, searchArea=None):
     logger.info('Querying Overpass for mapping "%s".', parsed['name'])
     if searchArea:
         area = nominatim.geocode_place(searchArea)
-        geocoded_overpass_queries = [
-            query.replace('area.searchArea', 'area:%d' % area)
-            for query in parsed['overpass']
-        ]
+        geocoded_overpass_query = parsed['overpass'].replace(
+            'area.searchArea', 'area:%d' % area
+        )
     else:
-        geocoded_overpass_queries = parsed['overpass']
-    return overpass.query(geocoded_overpass_queries)
+        geocoded_overpass_query = parsed['overpass']
+    return overpass.query(geocoded_overpass_query)
 
 
 def apply_mapping(data, parsed):

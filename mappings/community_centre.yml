@@ -1,6 +1,5 @@
 name: Maisons de quartier / maison associative
-overpass:
-  - nwr["amenity"="community_centre"](area.searchArea);
+overpass: nwr["amenity"="community_centre"](area.searchArea);
 mapping:
   name: name
   phone: phone

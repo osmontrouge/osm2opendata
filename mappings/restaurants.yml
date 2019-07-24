@@ -1,7 +1,9 @@
 name: Restaurants / bars
-overpass:
-  - nwr["amenity"="restaurant"](area.searchArea)
-  - nwr["amenity"="cafe"](area.searchArea)
+overpass: |
+  (
+    nwr["amenity"="restaurant"](area.searchArea);
+    nwr["amenity"="cafe"](area.searchArea);
+  );
 mapping:
   name: name
   website: website

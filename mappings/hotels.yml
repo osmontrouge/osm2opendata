@@ -1,6 +1,5 @@
 name: Hôtels
-overpass:
-  - nwr["tourism"="hotel"](area.searchArea);
+overpass: nwr["tourism"="hotel"](area.searchArea);
 mapping:
   name: name
   stars: stars

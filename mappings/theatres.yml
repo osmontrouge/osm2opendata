@@ -1,6 +1,5 @@
 name: Théâtre
-overpass:
-  - nwr["amenity"="theatre"](area.searchArea);
+overpass: nwr["amenity"="theatre"](area.searchArea);
 mapping:
   name: name
   address: <ADDRESS>

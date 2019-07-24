@@ -1,3 +1,2 @@
 name: Ruches
-overpass:
-  - node["man_made"="beehive"](area.searchArea)
+overpass: node["man_made"="beehive"](area.searchArea);

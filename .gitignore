@@ -1,2 +1,4 @@
 *.pyc
 __pycache__
+package*.json
+node_modules/

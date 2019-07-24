@@ -1,3 +1,2 @@
 name: Hammacs en libre accès
-overpass:
-  - nwr["amenity"="hammock"](area.searchArea);
+overpass: nwr["amenity"="hammock"](area.searchArea);

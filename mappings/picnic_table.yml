@@ -1,3 +1,2 @@
 name: Tables de pique-nique
-overpass:
-  - node["leisure"="picnic_table"](area.searchArea);
+overpass: node["leisure"="picnic_table"](area.searchArea);

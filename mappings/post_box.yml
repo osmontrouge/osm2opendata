@@ -1,6 +1,5 @@
 name: Boîtes aux lettres
-overpass:
-  - nwr["amenity"="post_box"](area.searchArea);
+overpass: nwr["amenity"="post_box"](area.searchArea);
 mapping:
   ref: ref
   collection_times: collection_times

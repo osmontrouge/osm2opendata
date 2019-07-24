@@ -1,3 +1,0 @@
-name: Frontière de la ville
-overpass:
-  - relation["boundary"="administrative"]["admin_level"="8"](area.searchArea)

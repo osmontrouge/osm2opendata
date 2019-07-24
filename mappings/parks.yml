@@ -1,0 +1,6 @@
+name: Parcs
+overpass: nwr["leisure"="park"](area.searchArea);
+mapping:
+  access: access
+  name: name
+  dog: dog

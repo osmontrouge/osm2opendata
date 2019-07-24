@@ -1,6 +1,5 @@
 name: Station services
-overpass:
-  - nwr["amenity"="fuel"](area.searchArea);
+overpass: nwr["amenity"="fuel"](area.searchArea);
 mapping:
   address: <ADDRESS>
   brand: brand

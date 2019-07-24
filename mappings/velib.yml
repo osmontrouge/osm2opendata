@@ -1,7 +1,6 @@
 name: Stations Vélib
 description: Intègre et affine https://opendata.paris.fr/explore/dataset/velib-emplacement-des-stations/information/ sur la commune de Montrouge.
-overpass:
-  - nwr["amenity"="bicycle_rental"]["network"="Vélib’"](area.searchArea);
+overpass: nwr["amenity"="bicycle_rental"]["network"="Vélib’"](area.searchArea);
 mapping:
   name: name
   capacity: capacity|int

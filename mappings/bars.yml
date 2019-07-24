@@ -1,7 +1,9 @@
 name: Bars et pubs
-overpass:
-  - nwr["amenity"="bar"](area.searchArea);
-  - nwr["amenity"="pub"](area.searchArea);
+overpass: |
+  (
+    nwr["amenity"="bar"](area.searchArea);
+    nwr["amenity"="pub"](area.searchArea);
+  );
 mapping:
   name: name
   website: website

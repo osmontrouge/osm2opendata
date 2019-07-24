@@ -1,6 +1,5 @@
 name: Sacs à excréments
-overpass:
-  - nwr["amenity"="vending_machine"]["vending"="excrement_bags"](area.searchArea)
+overpass: nwr["amenity"="vending_machine"]["vending"="excrement_bags"](area.searchArea);
 mapping:
   fee: fee|bool
   operator: operator

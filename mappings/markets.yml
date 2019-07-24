@@ -1,6 +1,5 @@
 name: Marchés
-overpass:
-  - nwr["amenity"="marketplace"](area.searchArea);
+overpass: nwr["amenity"="marketplace"](area.searchArea);
 mapping:
   name: name
   opening_hours: opening_hours

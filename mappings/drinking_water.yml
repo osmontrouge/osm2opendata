@@ -1,4 +1,6 @@
 name: Eau potable
-overpass:
-  - nwr["amenity"="drinking_water"](area.searchArea);
-  - nwr["drinking_water"="yes"](area.searchArea);
+overpass: |
+  (
+    nwr["amenity"="drinking_water"](area.searchArea);
+    nwr["drinking_water"="yes"](area.searchArea);
+  );

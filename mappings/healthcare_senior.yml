@@ -1,6 +1,5 @@
 name: Établissements pour personnes âgées
-overpass:
-  - nwr["amenity"="social_facility"]["social_facility:for"="senior"](area.searchArea);
+overpass: nwr["amenity"="social_facility"]["social_facility:for"="senior"](area.searchArea);
 mapping:
   name: name
   address: <ADDRESS>

@@ -1,11 +1,15 @@
+import json
 import logging
+import subprocess
 
 import overpass
+
+from . import constants
 
 logger = logging.getLogger(__name__)
 
 
-def query(queries_str):
+def query(query_str):
     """
     Query Overpass API.
 
@@ -13,13 +17,12 @@ def query(queries_str):
     :returns: The parsed JSON response.
     """
     api = overpass.API()
-    data = {
-        'type': 'FeatureCollection',
-        'features': []
-    }
-    for query in queries_str:
-        logger.debug('Running Overpass query: %s', query)
-        data['features'].extend(
-            api.get(query, responseformat='geojson', verbosity='geom').features
+    logger.debug('Running Overpass query: %s', query_str)
+    xml_data = api.get(query_str, responseformat='xml', verbosity='geom')
+    geojson_data = json.loads(
+        subprocess.check_output(
+            constants.OSMTOGEOJSON_BIN,
+            input=xml_data.encode('utf-8')
         )
-    return data
+    )
+    return geojson_data
