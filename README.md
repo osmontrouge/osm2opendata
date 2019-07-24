@@ -22,6 +22,13 @@ At the root of the Git repository,
 python -m opendata -v --searchArea Montrouge <MAPPING_FILE>
 ```
 
+To generate everything,
+
+```
+mkdir -p out
+for i in mappings/*.yml; do python -m opendata -v --searchArea Montrouge ${i} > out/${$(basename $i)%.yml}.geojson; sleep 5; done
+```
+
 
 ## License
 
