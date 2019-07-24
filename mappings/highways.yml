@@ -1,0 +1,11 @@
+name: Réseau routier
+overpass: way["highway"]["highway"!="cycleway"]["highway"!="footway"]["highway"!="path"]["highway"!="bridleway"]["highway"!="steps"]["highway"!="pedestrian"]["access"!="private"]["access"!="no"](area.searchArea);
+mapping:
+  highway: highway
+  lit: lit
+  maxspeed: maxspeed
+  name: name
+  oneway: oneway
+  surface: surface
+  access: access
+  ref: ref

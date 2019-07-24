@@ -1,3 +1,0 @@
-name: Sas vélos
-overpass:
-  - node["cycleway"="asl"](area.searchArea);

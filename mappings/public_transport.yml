@@ -1,0 +1,19 @@
+name: Arrêts de transports en commun
+overpass: |
+    (
+        node["highway"="bus_stop"](area.searchArea);
+        node["railway"="station"]["station"="subway"](area.searchArea);
+    );
+mapping:
+  name: name
+  bench: bench
+  shelter: shelter
+  wheelchair: wheelchair
+  tactile_paving: tactile_paving
+  "STIF:zone": "STIF:zone"
+  "ref:STIF": "ref:FR:STIF"
+  "ref:STIF:stop_id": "ref:FR:STIF:stop_id"
+  lines: route_ref
+  bus: bus|bool
+  subway: subway|bool
+  passenger_information_display: passenger_information_display

@@ -1,0 +1,18 @@
+name: Annuaire de l'éducation
+overpass: |
+  (
+    nwr["amenity"="kindergarten"](area.searchArea);
+    nwr["amenity"="school"](area.searchArea);
+    nwr["amenity"="college"](area.searchArea);
+    nwr["amenity"="university"](area.searchArea);
+  );
+mapping:
+  name: name
+  type: "school:FR"
+  operator_type: "operator:type"
+  phone: phone
+  fax: fax
+  UAI: "ref:UAI"
+  email: email
+  website: website
+  address: <ADDRESS>
