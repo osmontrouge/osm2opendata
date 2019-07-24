@@ -1,0 +1,6 @@
+name: Points d'apport volontaire
+overpass: nwr["amenity"="recycling"](area.searchArea);
+mapping:
+  type: recycling_type
+  clothes: "recycling:clothes|bool"
+  opening_hours: opening_hours
