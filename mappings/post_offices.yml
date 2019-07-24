@@ -1,0 +1,10 @@
+name: Bureaux et relais poste
+overpass:
+  - nwr["amenity"="post_office"](area.searchArea);
+  - nwr["post_office:type"](area.searchArea);
+mapping:
+  name: name
+  address: <ADDRESS>
+  type: "post_office:type"
+  phone: phone
+  opening_hours: opening_hours

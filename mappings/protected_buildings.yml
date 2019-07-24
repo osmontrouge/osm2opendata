@@ -1,0 +1,8 @@
+name: Monuments classés ou inscrits monument historique
+overpass:
+  - nwr["heritage"](area.searchArea);
+mapping:
+    name: name
+    inscription_date: "mhs:inscription_date"
+    mhs: heritage
+    ref: "ref:mhs"

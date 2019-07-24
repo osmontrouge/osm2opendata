@@ -1,0 +1,6 @@
+name: Micro-bibliothèques de rue
+overpass:
+  - nwr["amenity"="public_bookcase"](area.searchArea);
+mapping:
+  material: material
+  operator: operator
