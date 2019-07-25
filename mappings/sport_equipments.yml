@@ -1,0 +1,17 @@
+name: Installations sportives
+overpass: |
+  (
+    nwr["leisure"="sports_centre"](area.searchArea);
+    nwr["leisure"="pitch"](area.searchArea);
+    nwr["leisure"="track"](area.searchArea);
+    nwr["fitness_station"](area.searchArea);
+  );
+mapping:
+  name: name
+  type:
+    - leisure
+    - fitness_station
+  sport: sport
+  covered: covered
+  fee: fee
+  surface: surface

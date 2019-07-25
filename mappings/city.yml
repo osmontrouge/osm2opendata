@@ -3,5 +3,7 @@ overpass: relation["boundary"="administrative"]["admin_level"="8"](area.searchAr
 mapping:
   name: name
   insee: "ref:INSEE"
+  SIREN: "ref:SIREN"
+  population: population
   wikidata: wikidata
   wikipedia: wikipedia

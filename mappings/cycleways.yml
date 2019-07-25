@@ -1,0 +1,27 @@
+name: Pistes cyclables
+overpass: |
+    (
+        // Trottoirs partagés
+        way["highway"]["bicycle"="designated"](area.searchArea);
+        // Pistes cyclables
+        way["highway"="cycleway"](area.searchArea);
+        // Pistes et bandes cyclables non séparées
+        way["highway"]["cycleway:left"]["cycleway:left"!="no"]["cycleway:left"!="use_sidepath"](area.searchArea);
+        way["highway"]["cycleway:right"]["cycleway:right"!="no"]["cycleway:right"!="use_sidepath"](area.searchArea);
+        way["highway"]["cycleway:both"]["cycleway:both"!="no"]["cycleway:both"!="use_sidepath"](area.searchArea);
+        way["highway"]["cycleway"]["cycleway"!="no"]["cycleway"!="use_sidepath"](area.searchArea);
+        // Espaces piétons autorisés aux vélos
+        way["highway"="pedestrian"]["bicycle"="yes"](area.searchArea);
+    );
+mapping:
+  left_cycleway:
+    - "cycleway:left"
+    - "cycleway:both"
+  left_cycleway_width: "cycleway:left:width"
+  right_cycleway:
+    - "cycleway:right"
+    - "cycleway:both"
+  right_cycleway_width: "cycleway:right:width"
+  cycleway: cycleway
+  cycleway_width: "cycleway:width"
+  pedestrian_area: "highway==pedestrian"
