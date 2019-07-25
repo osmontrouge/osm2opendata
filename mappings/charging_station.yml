@@ -1,0 +1,18 @@
+name: Stations de recharge de véhicules électriques
+overpass: nwr["amenity"="charging_station"](area.searchArea);
+mapping:
+  covered: covered|bool
+  opening_hours: opening_hours
+  parking_fee: "parking:fee"
+  start_date: start_date
+  owner: owner
+  operator: operator
+  website: website
+  chademo: "socket:chademo|bool"
+  chademo_output: "socket:chademo:output"
+  type2: "socket:type2|bool"
+  type2_output: "socket:type2:output"
+  type2_combo: "socket:type2_combo|bool"
+  type2_combo_output: "socket:type2_combo:output"
+  schuko: "socket:schuko|bool"
+  schuko_output: "socket:schuko:output"

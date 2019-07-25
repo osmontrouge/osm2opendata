@@ -1,8 +1,0 @@
-name: Stations de recharge de véhicules électriques
-overpass:
-  - nwr["amenity"="charging_station"](area.searchArea);
-mapping:
-  capacity: capacity|int
-  covered: covered|bool
-  operator: operator
-  parking_fee: "parking:fee"
