@@ -48,16 +48,7 @@ def apply_mapping(data, parsed):
     new_items = []
     logger.debug('Got response: %s.', data)
 
-    # Filter out duplicates
-    seen = []
-    features = []
     for item in data.get('features', []):
-        if item['id'] in seen:
-            continue
-        features.append(item)
-        seen.append(item['id'])
-
-    for item in features:
         new_item = {
             'geometry': item['geometry'],
             'properties': {
@@ -89,7 +80,6 @@ def apply_mapping(data, parsed):
                         new_item['properties'][new_field] = None
                 else:
                     new_item['properties'][new_field] = new_value
-
 
         new_items.append(new_item)
     return new_items
