@@ -1,0 +1,17 @@
+name: Parkings deux roues et vélos
+overpass: |
+  (
+    nwr["amenity"="bicycle_parking"]["access"!="private"]["access"!="customers"](area.searchArea);
+    nwr["amenity"="motorcycle_parking"]["access"!="private"]["access"!="customers"](area.searchArea);
+  );
+mapping:
+  capacity: capacity|int
+  covered: covered|bool
+  operator: operator
+  mapillary_id: mapillary
+  bicycle:
+    - "amenity==bicycle_parking"
+    - "bicycle|bool"
+  motorcycle:
+    - "amenity==motorcycle_parking"
+    - "motorcycle|bool"

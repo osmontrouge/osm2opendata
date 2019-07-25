@@ -1,6 +1,0 @@
-name: Parkings deux roues et vélos
-overpass:
-  - nwr["amenity"="bicycle_parking"](area.searchArea);
-  - nwr["amenity"="motorcycle_parking"](area.searchArea);
-mapping:
-  # TODO

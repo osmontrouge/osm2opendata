@@ -57,6 +57,11 @@ You can use (see the `opendata/constants.py` file):
     calls.
 
 
+## Mapping file syntax
+
+TODO
+
+
 ## License
 
 This software is licensed under an MIT license, unless explicitly mentionned otherwise.
