@@ -41,30 +41,38 @@ def execute_overpass(parsed, searchArea=None):
     return overpass.query(geocoded_overpass_query)
 
 
-def _process_field(item, osm_field):
+def _process_field(item, field_mapping):
     """
-    TODO
+    Process the mapping rules for a given field.
+
+    :param item: The item from the Overpass response.
+    :param field_mapping: The field mapping to apply (not pre-processed).
+    :return: The new value of the field.
     """
-    if osm_field == '<ADDRESS>':
+    # Handle the special address filter
+    if field_mapping == '<ADDRESS>':
         return '%s, %s' % (
             item.get('properties', {}).get('contact:housenumber'),
             item.get('properties', {}).get('contact:street')
         )
-    cast = None
-    check = None
-    if '|' in osm_field:
-        osm_field, cast = osm_field.split('|')[:2]
-    if '==' in osm_field:
-        osm_field, check = osm_field.split('==')[:2]
 
-    new_value = item.get('properties', {}).get(osm_field)
+    # Parse the mapping for cast and checks
+    cast, check = None, None
+    if '|' in field_mapping:
+        field_mapping, cast = field_mapping.split('|')[:2]
+    if '==' in field_mapping:
+        field_mapping, check = field_mapping.split('==')[:2]
 
+    # Get the current value of the field
+    new_value = item.get('properties', {}).get(field_mapping)
+
+    # Eventually apply check
     if check:
         return new_value == check
 
+    # Eventually apply cast operation
     if cast == 'int':
         return int(new_value) if new_value else None
-
     if cast == 'bool':
         if new_value in ['yes', '1']:
             return True
@@ -76,18 +84,24 @@ def _process_field(item, osm_field):
 
 def apply_mapping(data, parsed):
     """
-    TODO
+    Apply the mapping rules on an API response.
+
+    :param data: The API response.
+    :param parsed: A parsed YAML mapping.
+    :return: The new items with the mapping rules applied.
     """
     new_items = []
     logger.debug('Got response: %s.', data)
 
     for item in data.get('features', []):
+        # Initialize a new matching item
         new_item = {
             'geometry': item['geometry'],
             'properties': {
                 'osm_id': item['id']
             }
         }
+        # Apply mapping rules
         for new_field, osm_field in parsed.get('mapping', {}).items():
             if type(osm_field) == list:
                 for osm_field_item in osm_field:
