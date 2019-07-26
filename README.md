@@ -45,6 +45,13 @@ python -m opendata -h
 
 for documentation.
 
+## Usage with Docker
+
+```
+docker build -t opendata .
+docker run --rm opendata python -m opendata -v --searchArea Montrouge <MAPPING_FILE>
+```
+
 
 ### Environment variables
 
