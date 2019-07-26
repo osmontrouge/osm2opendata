@@ -16,10 +16,11 @@ def query(query_str):
     :param query_str: The query to run on Overpass API.
     :returns: The parsed (Geo)JSON response.
     """
-    api = overpass.API(headers={
-        "Accept-Charset": "utf-8;q=0.7,*;q=0.7",
-        "User-Agent": constants.USER_AGENT
-    })
+    api = overpass.API(endpoint=constants.OVERPASS_ENDPOINT,
+                       headers={
+                           "Accept-Charset": "utf-8;q=0.7,*;q=0.7",
+                           "User-Agent": constants.USER_AGENT
+                       })
     logger.debug('Running Overpass query: %s', query_str)
     # Query Overpass API
     xml_data = api.get(query_str, responseformat='xml', verbosity='geom')

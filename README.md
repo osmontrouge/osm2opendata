@@ -55,6 +55,7 @@ You can use (see the `opendata/constants.py` file):
     root of the Git repository).
 * `USER_AGENT` environment variable to change the user agent used for API
     calls.
+- `OVERPASS_ENDPOINT` to specify the overpass endpoint, by default `https://overpass-api.de/api/interpreter`.
 
 
 ## Mapping file syntax

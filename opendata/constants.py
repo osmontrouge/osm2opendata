@@ -8,3 +8,4 @@ OSMTOGEOJSON_BIN = os.environ.get(
         '../node_modules/.bin/osmtogeojson'
     )
 )
+OVERPASS_ENDPOINT = os.environ.get('OVERPASS_ENDPOINT', 'https://overpass-api.de/api/interpreter')
