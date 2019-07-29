@@ -87,7 +87,7 @@ def _process_field(item, field_mapping):
     if cast == 'bool':
         if new_value in ['yes', '1']:
             return True
-        elif new_value in ['no', '0', None]:
+        elif new_value in ['no', '0']:
             return False
         return None
     return new_value
