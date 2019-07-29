@@ -3,5 +3,6 @@ overpass: nwr["heritage"](area.searchArea);
 mapping:
     name: name
     inscription_date: "mhs:inscription_date"
-    mhs: heritage
-    ref: "ref:mhs"
+    MH: "heritage==2"
+    INV: "heritage==3"
+    "ref:mhs": "ref:mhs"
