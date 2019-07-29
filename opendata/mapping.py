@@ -50,10 +50,14 @@ def _process_field(item, field_mapping):
     :return: The new value of the field.
     """
     # Handle the special address filter
+    properties = item.get('properties', {})
     if field_mapping == '<ADDRESS>':
         return '%s, %s' % (
-            item.get('properties', {}).get('contact:housenumber'),
-            item.get('properties', {}).get('contact:street')
+            properties.get('contact:housenumber'),
+            properties.get(
+                'contact:street',
+                properties.get('contact:place')
+            )
         )
 
     # Parse the mapping for cast and checks
@@ -64,7 +68,7 @@ def _process_field(item, field_mapping):
         field_mapping, check = field_mapping.split('==')[:2]
 
     # Get the current value of the field
-    new_value = item.get('properties', {}).get(field_mapping)
+    new_value = properties.get(field_mapping)
 
     # Eventually apply check
     if check:

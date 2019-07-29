@@ -9,3 +9,4 @@ mapping:
   wheelchair: wheelchair
   name: name
   address: <ADDRESS>
+  "ref:SIREN": "ref:FR:SIREN"
