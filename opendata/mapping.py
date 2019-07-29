@@ -52,13 +52,20 @@ def _process_field(item, field_mapping):
     # Handle the special address filter
     properties = item.get('properties', {})
     if field_mapping == '<ADDRESS>':
-        return '%s, %s' % (
-            properties.get('contact:housenumber'),
-            properties.get(
+        housenumber = properties.get('contact:housenumber')
+        if housenumber:
+            return '%s, %s' % (
+                housenumber,
+                properties.get(
+                    'contact:street',
+                    properties.get('contact:place')
+                )
+            )
+        else:
+            return '%s' % properties.get(
                 'contact:street',
                 properties.get('contact:place')
             )
-        )
 
     # Parse the mapping for cast and checks
     cast, check = None, None

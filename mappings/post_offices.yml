@@ -10,3 +10,7 @@ mapping:
   type: "post_office:type"
   phone: phone
   opening_hours: opening_hours
+  stamping_machine: stamping_machine|bool
+  copy_facility: copy_facility|bool
+  wheelchair: wheelchair|bool
+  atm: atm|bool
