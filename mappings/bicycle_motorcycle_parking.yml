@@ -5,8 +5,10 @@ overpass: |
     nwr["amenity"="motorcycle_parking"]["access"!="private"]["access"!="customers"](area.searchArea);
   );
 mapping:
+  type: bicycle_parking
   capacity: capacity|int
   covered: covered|bool
+  fee: fee|bool
   operator: operator
   mapillary_id: mapillary
   bicycle:
