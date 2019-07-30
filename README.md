@@ -48,8 +48,7 @@ for documentation.
 ## Usage with Docker
 
 ```
-docker build -t osm2opendata .
-docker run --rm osm2opendata python -m osm2opendata -v --searchArea Montrouge <MAPPING_FILE>
+docker run --rm osmontrouge/osm2opendata python -m osm2opendata -v --searchArea Montrouge <MAPPING_FILE>
 ```
 
 
