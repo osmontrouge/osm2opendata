@@ -1,5 +1,5 @@
 name: Médiathèque
-overpass: nwr["amenity"="library"](area.searchArea);
+overpass: nwr["amenity"="library"]["access"!="private"](area.searchArea);
 mapping:
   name: name
   address: <ADDRESS>
