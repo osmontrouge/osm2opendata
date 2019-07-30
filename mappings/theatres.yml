@@ -4,3 +4,4 @@ mapping:
   name: name
   address: <ADDRESS>
   phone: phone
+  operator: operator
