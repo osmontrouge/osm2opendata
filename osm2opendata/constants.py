@@ -1,6 +1,6 @@
 import os
 
-USER_AGENT = os.environ.get('USER_AGENT', 'OSMontrouge/opendata')
+USER_AGENT = os.environ.get('USER_AGENT', 'OSMontrouge/OSM2OpenData')
 OSMTOGEOJSON_BIN = os.environ.get(
     'OSMTOGEOJSON_BIN',
     os.path.join(

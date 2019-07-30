@@ -22,7 +22,7 @@ You should run `pip` in a
 At the root of the Git repository, run
 
 ```
-python -m opendata -v --searchArea Montrouge <MAPPING_FILE>
+python -m osm2opendata -v --searchArea Montrouge <MAPPING_FILE>
 ```
 
 to generate the GeoJSON OpenData file for the specified mapping (output is on
@@ -34,13 +34,13 @@ To generate all GeoJSON OpenData files, run
 
 ```
 mkdir -p out
-for i in mappings/*.yml; do python -m opendata -v --searchArea Montrouge ${i} > out/${$(basename $i)%.yml}.geojson; sleep 5; done
+for i in mappings/*.yml; do python -m osm2opendata -v --searchArea Montrouge ${i} > out/${$(basename $i)%.yml}.geojson; sleep 5; done
 ```
 
 Run
 
 ```
-python -m opendata -h
+python -m osm2opendata -h
 ```
 
 for documentation.
@@ -48,14 +48,14 @@ for documentation.
 ## Usage with Docker
 
 ```
-docker build -t opendata .
-docker run --rm opendata python -m opendata -v --searchArea Montrouge <MAPPING_FILE>
+docker build -t osm2opendata .
+docker run --rm osm2opendata python -m osm2opendata -v --searchArea Montrouge <MAPPING_FILE>
 ```
 
 
 ### Environment variables
 
-You can use (see the `opendata/constants.py` file):
+You can use (see the `osm2opendata/constants.py` file):
 
 * `OSMTOGEOJSON_BIN` environment variable to change the location of the
     `osmtogeojson` binary (default to `node_modules/.bin/osmtogeojson` in the

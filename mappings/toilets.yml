@@ -1,5 +1,11 @@
 name: Toilettes publiques
 overpass: nwr["amenity"="toilets"]["access"!="private"](area.searchArea);
 mapping:
-  fee: fee
-  wheelchair: wheelchair
+  fee: fee|bool
+  wheelchair: wheelchair|bool
+  unisex: unisex|bool
+  indoor: indoor|bool
+  opening_hours: opening_hours
+  changing_table:
+    - changing_table|bool
+    - diaper|bool
