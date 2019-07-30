@@ -2,12 +2,14 @@ name: Hôtels
 overpass: nwr["tourism"="hotel"](area.searchArea);
 mapping:
   name: name
-  stars: stars
+  stars: stars|int
   website: website
   phone: phone
-  rooms: rooms
+  rooms: rooms|int
   address: <ADDRESS>
   internet_access: internet_access
   email: email
-  beds: beds
-  wheelchair: wheelchair
+  fax: fax
+  beds: beds|int
+  breakfast: breakfast|bool
+  wheelchair: wheelchair|bool
