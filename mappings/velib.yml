@@ -6,3 +6,5 @@ mapping:
   capacity: capacity|int
   station_id: ref
   vending: vending|bool
+  operator: operator
+  network: network
