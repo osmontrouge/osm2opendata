@@ -1,7 +1,7 @@
 OSM2OpenData
 ============
 
-When your city hall does not provide opendata, just do it yourself…
+When your city hall does not provide opendata, just do it yourself!
 
 
 ## Requirements
