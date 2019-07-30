@@ -15,7 +15,10 @@ def main(mappings, searchArea):
         print(json.dumps(
             {
                 'type': 'FeatureCollection',
-                'features': data
+                'features': sorted(
+                    data,
+                    key=lambda x: x['properties']['osm_id']
+                )
             },
             sort_keys=True, indent=4, separators=(',', ': ')
         ))
