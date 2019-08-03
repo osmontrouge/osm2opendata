@@ -1,3 +1,4 @@
+import functools
 import json
 import logging
 import subprocess
@@ -5,10 +6,31 @@ import subprocess
 import overpass
 
 from . import constants
+from . import nominatim
 
 logger = logging.getLogger(__name__)
 
 
+def get_overpass_area_id(place):
+    """
+    Geocode a place with Nominatim and get the matching ID to use in Overpass
+    queries.
+
+    :param place: Place name.
+    :returns: The ID to use as an Overpass place id.
+    """
+    osm_type, osm_id = nominatim.geocode_place(place)
+    # See https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#By_area_.28area.29
+    overpass_area_id = None
+    if osm_type == 'relation':
+        overpass_area_id = 3600000000 + osm_id
+    elif osm_type == 'way':
+        overpass_area_id = 2400000000 + osm_id
+    logger.info('Overpass area id for %s is %d.', place, overpass_area_id)
+    return overpass_area_id
+
+
+@functools.lru_cache()
 def query(query_str):
     """
     Query Overpass API.

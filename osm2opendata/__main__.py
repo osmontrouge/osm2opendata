@@ -11,7 +11,7 @@ def main(mappings, searchArea):
     for filename in mappings:
         parsed = mapping.read_mapping(filename)
         data = mapping.execute_overpass(parsed, searchArea)
-        data = mapping.apply_mapping(data, parsed)
+        data = mapping.apply_mapping(data, parsed, searchArea)
         print(json.dumps(
             {
                 'type': 'FeatureCollection',

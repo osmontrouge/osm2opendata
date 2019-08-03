@@ -1,2 +1,4 @@
 overpass
+pyproj
 pyyaml
+shapely
