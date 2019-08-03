@@ -6,12 +6,12 @@ mapping:
   owner: owner
   operator: operator
   website: website
-  capacity: capacity
-  chademo: "socket:chademo"
+  capacity: "capacity|int"
+  chademo: "socket:chademo|int"
   chademo_output: "socket:chademo:output"
-  type2: "socket:type2"
+  type2: "socket:type2|int"
   type2_output: "socket:type2:output"
-  type2_combo: "socket:type2_combo"
+  type2_combo: "socket:type2_combo|int"
   type2_combo_output: "socket:type2_combo:output"
-  schuko: "socket:schuko"
+  schuko: "socket:schuko|int"
   schuko_output: "socket:schuko:output"
