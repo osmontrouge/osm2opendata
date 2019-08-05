@@ -13,5 +13,7 @@ mapping:
   type2_output: "socket:type2:output"
   type2_combo: "socket:type2_combo|int"
   type2_combo_output: "socket:type2_combo:output"
+  type3: "socket:type3|int"
+  type3_output: "socket:type3:output"
   schuko: "socket:schuko|int"
   schuko_output: "socket:schuko:output"
