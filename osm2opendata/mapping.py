@@ -158,6 +158,7 @@ def apply_mapping(data, parsed, searchArea=None):
     for item in data.get('features', []):
         # Initialize a new matching item
         new_item = {
+            'type': item['type'],
             'properties': {
                 'osm_id': item['id']
             }
