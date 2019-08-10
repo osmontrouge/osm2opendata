@@ -86,6 +86,8 @@ def _process_field(item, field_mapping):
 
     # Parse the mapping for cast and checks
     cast, check = None, None
+    if field_mapping.startswith('!'):
+        field_mapping, check = field_mapping[1:], '!'
     if '|' in field_mapping:
         field_mapping, cast = field_mapping.split('|')[:2]
     if '==' in field_mapping:
@@ -95,7 +97,9 @@ def _process_field(item, field_mapping):
     new_value = properties.get(field_mapping)
 
     # Eventually apply check
-    if check:
+    if check == '!':
+        return new_value is None
+    elif check:
         return new_value == check
 
     # Eventually apply cast operation
