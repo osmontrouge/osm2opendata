@@ -121,6 +121,11 @@ def _clip_geometry(geometry, searchArea):
     :param geometry: A GeoJSON geometry.
     :param searchArea: The area to clip geometry to.
     """
+    if geometry.get('type') == 'Point':
+        # No need to clip Points, they should lie within the expected area from
+        # Overpass query.
+        return geometry
+
     osm_type, osm_id = nominatim.geocode_place(searchArea)
     clipping_geometry = next(
         x
