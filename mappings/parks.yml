@@ -4,3 +4,4 @@ mapping:
   access: access
   name: name
   dog: dog
+  operator: operator
