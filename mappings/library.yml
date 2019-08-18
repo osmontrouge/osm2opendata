@@ -6,6 +6,10 @@ mapping:
   internet_access: internet_access
   "internet_access:fee": "internet_access:fee"
   opening_hours: opening_hours
-  phone: phone
-  website: website
+  phone:
+    - phone
+    - "contact:phone"
+  website:
+    - website
+    - "contact:website"
   wheelchair: wheelchair

@@ -8,7 +8,9 @@ mapping:
   name: name
   address: <ADDRESS>
   type: "post_office:type"
-  phone: phone
+  phone:
+    - phone
+    - "contact:phone"
   opening_hours: opening_hours
   stamping_machine: stamping_machine|bool
   copy_facility: copy_facility|bool

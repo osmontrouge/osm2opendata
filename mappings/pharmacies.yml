@@ -4,8 +4,12 @@ mapping:
   "ref:FINESS": "ref:FR:FINESS"
   "type:FINESS": type:FR:FINESS
   opening_hours: opening_hours
-  phone: phone
-  fax: fax
+  phone:
+    - phone
+    - "contact:phone"
+  fax:
+    - fax
+    - "contact:fax"
   wheelchair: wheelchair
   name: name
   address: <ADDRESS>

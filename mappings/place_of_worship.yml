@@ -5,8 +5,12 @@ mapping:
     - denomination
     - religion
   name: name
-  phone: phone
-  website: website
+  phone:
+    - phone
+    - "contact:phone"
+  website:
+    - website
+    - "contact:website"
   email: email
   adress: <ADDRESS>
   service_times: service_times

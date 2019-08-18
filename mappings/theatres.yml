@@ -3,5 +3,7 @@ overpass: nwr["amenity"="theatre"](area.searchArea);
 mapping:
   name: name
   address: <ADDRESS>
-  phone: phone
+  phone:
+    - phone
+    - "contact:phone"
   operator: operator

@@ -5,7 +5,9 @@ mapping:
   parking_fee: "parking:fee"
   owner: owner
   operator: operator
-  website: website
+  website:
+    - website
+    - "contact:website"
   capacity: "capacity|int"
   chademo: "socket:chademo|int"
   chademo_output: "socket:chademo:output"

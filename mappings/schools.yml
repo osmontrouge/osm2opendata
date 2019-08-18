@@ -10,9 +10,15 @@ mapping:
   name: name
   type: "school:FR"
   operator_type: "operator:type"
-  phone: phone
-  fax: fax
+  phone:
+    - phone
+    - "contact:phone"
+  fax:
+    - fax
+    - "contact:fax"
   UAI: "ref:UAI"
   email: email
-  website: website
+  website:
+    - website
+    - "contact:website"
   address: <ADDRESS>

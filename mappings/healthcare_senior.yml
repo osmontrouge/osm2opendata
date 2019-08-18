@@ -5,8 +5,12 @@ mapping:
   address: <ADDRESS>
   beds: beds|int
   capacity: capacity|int
-  phone: phone
-  fax: fax
+  phone:
+    - phone
+    - "contact:phone"
+  fax:
+    - fax
+    - "contact:fax"
   "ref:FINESS": "ref:FR:FINESS"
   "type:FINESS": "type:FR:FINESS"
   operator: operator

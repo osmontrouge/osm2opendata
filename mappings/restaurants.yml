@@ -6,8 +6,12 @@ overpass: |
   );
 mapping:
   name: name
-  website: website
-  phone: phone
+  website:
+    - website
+    - "contact:website"
+  phone:
+    - phone
+    - "contact:phone"
   opening_hours: opening_hours
   email: email
   outdoor_seating: outdoor_seating|bool
