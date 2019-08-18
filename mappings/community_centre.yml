@@ -7,3 +7,8 @@ mapping:
     - "contact:phone"
   address: <ADDRESS>
   type: community_centre
+  website:
+    - website
+    - "contact:website"
+  opening_hours: opening_hours
+  for: "community_centre:for"
