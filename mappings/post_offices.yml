@@ -11,7 +11,9 @@ mapping:
   phone:
     - phone
     - "contact:phone"
-  opening_hours: opening_hours
+  opening_hours:
+    - opening_hours
+    - "opening_hours:post_office"
   stamping_machine: stamping_machine|bool
   copy_facility: copy_facility|bool
   wheelchair: wheelchair|bool
