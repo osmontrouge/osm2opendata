@@ -14,3 +14,4 @@ mapping:
   email: email
   adress: <ADDRESS>
   service_times: service_times
+  opening_hours: opening_hours
