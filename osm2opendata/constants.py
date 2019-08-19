@@ -12,6 +12,10 @@ OVERPASS_ENDPOINT = os.environ.get(
     'OVERPASS_ENDPOINT',
     'https://overpass-api.de/api/interpreter'
 )
+OVERPASS_TIMEOUT = os.environ.get(
+    'OVERPASS_TIMEOUT',
+    300
+)
 LOCAL_COORDINATES_SYSTEM = os.environ.get(
     'LOCAL_COORDINATES_SYSTEM',
     'EPSG:2154'  # Lambert93, France

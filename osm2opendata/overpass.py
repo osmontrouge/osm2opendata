@@ -42,7 +42,9 @@ def query(query_str):
                        headers={
                            "Accept-Charset": "utf-8;q=0.7,*;q=0.7",
                            "User-Agent": constants.USER_AGENT
-                       })
+                       },
+                       timeout=constants.OVERPASS_TIMEOUT
+                      )
     logger.debug('Running Overpass query: %s', query_str)
     # Query Overpass API
     xml_data = api.get(query_str, responseformat='xml', verbosity='geom')
