@@ -175,6 +175,7 @@ def apply_mapping(data, parsed, searchArea=None):
 
         # Apply mapping rules
         for new_field, osm_field in parsed.get('mapping', {}).items():
+            new_item['properties'][new_field] = None  # init
             if type(osm_field) == list:
                 for osm_field_item in osm_field:
                     new_value = _process_field(
