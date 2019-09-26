@@ -4,7 +4,7 @@ import logging
 import pyproj
 import yaml
 
-from shapely.geometry import mapping, shape
+from shapely.geometry import mapping, shape, Polygon, MultiPolygon
 from shapely.ops import transform
 
 from . import constants
@@ -140,6 +140,12 @@ def _clip_geometry(geometry, searchArea):
     # Convert to shapely objects in local coordinates system
     clipping_geometry = transform(TO_LOCAL, shape(clipping_geometry))
     geometry = transform(TO_LOCAL, shape(geometry))
+    if (
+        (isinstance(geometry, Polygon) or isinstance(geometry, MultiPolygon))
+        and not geometry.is_valid
+    ):
+        # Try to somehow fix the self-intersecting geometry
+        geometry = geometry.buffer(0)
 
     # Clip the geometry
     geometry = geometry.intersection(clipping_geometry)
