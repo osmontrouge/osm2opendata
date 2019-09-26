@@ -57,7 +57,7 @@ def execute_overpass(parsed, searchArea=None):
         geocoded_overpass_query = parsed['overpass']
 
     overpass_result = overpass.query(geocoded_overpass_query)
-    if parsed['overpass_filter_geometry']:
+    if parsed.get('overpass_filter_geometry'):
         result = overpass_result.copy()
         result['features'] = [
             x
