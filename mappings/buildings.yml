@@ -1,0 +1,14 @@
+name: Bâti
+overpass: |
+  (
+    way["building"](area.searchArea);
+    relation["building"](area.searchArea);
+  )
+mapping:
+  building: building
+  colour: "building:colour"
+  levels: "buildings:levels"
+  material: "building:material"
+  roof_colour: "roof:colour"
+  roof_shape: "roof:shape"
+  roof_material: "roof:material"
