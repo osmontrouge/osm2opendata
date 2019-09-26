@@ -5,3 +5,4 @@ mapping:
   name: name
   dog: dog
   operator: operator
+  opening_hours: opening_hours
