@@ -1,4 +1,5 @@
 name: Bâti
+no_refilter_on_boundary: True
 overpass: |
   (
     way["building"](area.searchArea);

@@ -124,7 +124,7 @@ def _process_field(item, field_mapping):
     return new_value
 
 
-def _clip_geometry(geometry, searchArea):
+def _eventually_clip_geometry(geometry, searchArea, clip=True):
     """
     Clip the geometry of the object to the bounds of the search area.
 
@@ -148,17 +148,19 @@ def _clip_geometry(geometry, searchArea):
     )['geometry']
 
     # Convert to shapely objects in local coordinates system
-    clipping_geometry = transform(TO_LOCAL, shape(clipping_geometry))
     geometry = transform(TO_LOCAL, shape(geometry))
-    if (
-        (isinstance(geometry, Polygon) or isinstance(geometry, MultiPolygon))
-        and not geometry.is_valid
-    ):
-        # Try to somehow fix the self-intersecting geometry
-        geometry = geometry.buffer(0)
+    if clip:
+        clipping_geometry = transform(TO_LOCAL, shape(clipping_geometry))
+        if (
+            (isinstance(geometry, Polygon) or
+             isinstance(geometry, MultiPolygon))
+            and not geometry.is_valid
+        ):
+            # Try to somehow fix the self-intersecting geometry
+            geometry = geometry.buffer(0)
 
-    # Clip the geometry
-    geometry = geometry.intersection(clipping_geometry)
+        # Clip the geometry
+        geometry = geometry.intersection(clipping_geometry)
 
     # Return the geometry projected back in WGS84
     return mapping(transform(TO_WGS84, geometry))
@@ -185,7 +187,11 @@ def apply_mapping(data, parsed, searchArea=None):
             }
         }
         if searchArea:
-            new_item['geometry'] = _clip_geometry(item['geometry'], searchArea)
+            new_item['geometry'] = _eventually_clip_geometry(
+                item['geometry'],
+                searchArea,
+                clip=(not parsed.get('no_refilter_on_boundary', False))
+            )
         else:
             new_item['geometry'] = item['geometry']
 
