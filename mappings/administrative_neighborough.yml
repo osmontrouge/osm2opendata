@@ -2,3 +2,4 @@ name: Quartiers administratifs
 overpass: relation["boundary"="administrative"]["admin_level"="10"](area.searchArea);
 mapping:
   name: name
+  colour: colour
