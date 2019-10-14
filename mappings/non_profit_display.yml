@@ -1,0 +1,6 @@
+name: Affichage libre
+overpass: nwr["advertising"="board"]["message"="opinion;non_profit"](area.searchArea);
+mapping:
+  operator: operator
+  orientation: orientation
+  direction: direction
