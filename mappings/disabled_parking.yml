@@ -1,0 +1,5 @@
+name: Places PMR
+overpass: nwr["amenity"="parking_space"]["parking_space"="disabled"](area.searchArea);
+mapping:
+  capacity: capacity|int
+  wheelchair: wheelchair|bool
