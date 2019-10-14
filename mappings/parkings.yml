@@ -1,0 +1,14 @@
+name: Parkings publics
+overpass: |
+  (
+    nwr["parking"="underground"]["access"="yes"](area.searchArea);
+    nwr["amenity"="parking"]["access"="yes"](area.searchArea);
+  );
+
+mapping:
+  name: name
+  capacity: capacity|int
+  fee: fee|bool
+  opening_hours: opening_hours
+  website: website
+  operator: operator
