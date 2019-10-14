@@ -1,0 +1,6 @@
+name: Affichage municipal
+overpass: nwr["advertising"="board"]["message"="local"](area.searchArea);
+mapping:
+  operator: operator
+  orientation: orientation
+  direction: direction
