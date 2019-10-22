@@ -2,4 +2,6 @@ name: Base Adresse Locale
 overpass: nwr["addr:housenumber"](area.searchArea);
 mapping:
   housenumber: "addr:housenumber"
-  street: "addr:street"
+  street:
+    - "addr:street"
+    - "addr:place"
