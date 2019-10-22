@@ -74,15 +74,16 @@ are required:
 * `mapping`: The mapping used to define the new fields. This is a dictionary,
     the keys being the new field names and the values being the mapping rules.
     These rules can be:
-        * A single string of the form `key` to use the value of the OSM field
-            `key`.
-        * A check against a value, `key==value` which will return `true` if
-            the value of the OSM field `key` is `value` and `false` otherwise.
-        * A cast operation, `key|int` or `key|bool` to convert the value of
-            the OSM field `key` to `int` or `bool` (converting `yes`, `no`,
-            `0` and `1` values to boolean values).
-        * A list of such operations, resulting in a coalesce operation (first
-            rule returning something else than `None` defines the value).
+
+  * A single string of the form `key` to use the value of the OSM field
+      `key`.
+  * A check against a value, `key==value` which will return `true` if
+      the value of the OSM field `key` is `value` and `false` otherwise.
+  * A cast operation, `key|int` or `key|bool` to convert the value of
+      the OSM field `key` to `int` or `bool` (converting `yes`, `no`,
+      `0` and `1` values to boolean values).
+  * A list of such operations, resulting in a coalesce operation (first
+      rule returning something else than `None` defines the value).
 
 
 ## License
