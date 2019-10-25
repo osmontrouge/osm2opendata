@@ -12,6 +12,6 @@ mapping:
     - website
     - "contact:website"
   email: email
-  adress: <ADDRESS>
+  address: <ADDRESS>
   service_times: service_times
   opening_hours: opening_hours
