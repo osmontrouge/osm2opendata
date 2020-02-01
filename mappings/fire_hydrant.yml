@@ -1,0 +1,7 @@
+name: Bornes incendie
+overpass: nwr["emergency"="fire_hydrant"](area.searchArea);
+mapping:
+  diameter: "fire_hydrant:diameter|int"
+  position: "fire_hydrant:position"
+  type: "fire_hydrant:type"
+  ref: ref
