@@ -1,0 +1,9 @@
+name: Affichage administratif
+overpass: nwr["advertising"="board"]["message"="legal"](area.searchArea);
+mapping:
+  operator: operator
+  orientation: orientation
+  direction: direction
+  luminous: luminous|bool
+  animated: animated|bool
+  sides: sides|int
