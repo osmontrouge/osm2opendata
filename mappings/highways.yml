@@ -9,3 +9,4 @@ mapping:
   surface: surface
   access: access
   ref: ref
+  zone_parking: "parking:zone"
