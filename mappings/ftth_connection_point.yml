@@ -1,0 +1,5 @@
+name: FTTH Points de connexion
+overpass: nwr["man_made"="street_cabinet"]["telecom"="connection_point"]["telecom:medium"="fibre"](area.searchArea);
+mapping:
+  operator: operator
+  ref: ref
