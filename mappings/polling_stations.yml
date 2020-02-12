@@ -1,0 +1,6 @@
+name: Bureaux de votes
+overpass: nwr["amenity"="polling_station"](area.searchArea);
+mapping:
+  ref: ref
+  name: name
+  official_name: official_name
