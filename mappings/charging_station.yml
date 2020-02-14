@@ -1,6 +1,7 @@
 name: Stations de recharge de véhicules électriques
 overpass: nwr["amenity"="charging_station"](area.searchArea);
 mapping:
+  ref: "ref:EU:EVSE"
   opening_hours: opening_hours
   parking_fee: "parking:fee"
   owner: owner
@@ -17,5 +18,5 @@ mapping:
   type2_combo_output: "socket:type2_combo:output"
   type3: "socket:type3|int"
   type3_output: "socket:type3:output"
-  schuko: "socket:schuko|int"
-  schuko_output: "socket:schuko:output"
+  typee: "socket:typee|int"
+  typee_output: "socket:typee:output"
