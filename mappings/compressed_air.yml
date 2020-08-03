@@ -4,3 +4,6 @@ overpass: |
     nwr["amenity"="compressed_air"](area.searchArea);
     nwr["compressed_air"="yes"](area.searchArea);
   );
+mapping:
+  pressure: pressure|int
+  valves: valves
